@@ -1,21 +1,24 @@
-import './App.css';
-import Header from './components/Header/Header';
-import Home from './components/Home/Home';
-import Shipment from './components/Shipment/Shipment';
-import { createContext, useState } from 'react';
+import { createContext, useState } from "react";
+import "./App.css";
+import Header from "./components/Header/Header";
+import Home from "./components/Home/Home";
+import Shipment from "./components/Shipment/Shipment";
 
-export const CategoryContext = createContext();
+export const categoryContext = createContext();
+
 function App() {
-  const [category, setCategory] = useState('laptop');
-  
-  return (
-    <CategoryContext.Provider value={[category, setCategory]}>
-      <h1>Count : {category}</h1>
-      <Header></Header>
-      <Home></Home>
-      <Shipment></Shipment>
-    </CategoryContext.Provider>
-  );
+	const [category, setCategory] = useState("");
+
+	return (
+		<categoryContext.Provider value={[category, setCategory]}>
+			<div className="app-w">
+				<h1>This is app.js : {category}</h1>
+				<Header />
+				<Home />
+				<Shipment />
+			</div>
+		</categoryContext.Provider>
+	);
 }
 
 export default App;
